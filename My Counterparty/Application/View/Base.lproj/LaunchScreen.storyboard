@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="5YQ-W0-Xyd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ef1-aC-qps">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мой контрагент" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efE-pV-Vf4">
                                 <rect key="frame" x="82" y="308" width="250" height="140"/>
@@ -33,18 +33,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.21954351659999999" green="0.48208755250000002" blue="0.7843473554" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="5YQ-W0-Xyd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jc8-mZ-POT"/>
                             <constraint firstItem="efE-pV-Vf4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-70" id="MK6-5g-K2a"/>
-                            <constraint firstItem="5YQ-W0-Xyd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UEK-lt-v6j"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5YQ-W0-Xyd" secondAttribute="bottom" id="a5O-c2-XMZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5YQ-W0-Xyd" secondAttribute="trailing" id="duQ-i4-T9I"/>
+                            <constraint firstItem="ef1-aC-qps" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="MQ4-gL-GcL"/>
+                            <constraint firstAttribute="bottom" secondItem="ef1-aC-qps" secondAttribute="bottom" id="PM2-fE-SdW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ef1-aC-qps" secondAttribute="trailing" id="ah5-75-CRb"/>
+                            <constraint firstItem="ef1-aC-qps" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="amV-uw-img"/>
                             <constraint firstItem="efE-pV-Vf4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="t3K-Ut-nKH"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="499"/>
+            <point key="canvasLocation" x="-1.4492753623188408" y="498.88392857142856"/>
         </scene>
     </scenes>
     <resources>
