@@ -94,7 +94,7 @@ struct OrganizationFullInfo {
         self.owner = organization.owner!
         self.debt = organization.debt!
         self.token = organization.token!
-        self.pdf = organization.pdf!
+        self.pdf = organization.pdf
     }
     
     init() {

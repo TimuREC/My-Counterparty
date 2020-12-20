@@ -35,8 +35,8 @@ class InformationViewController: UIViewController {
             favButton.isEnabled = true
             checkInBase(organization: info)
             organizationDescription.text = info.isGood
-            getPdfButton.isEnabled = true
-            getPdfButton.backgroundColor = .systemBlue
+            getPdfButton.isEnabled = info.pdf!.isEmpty ? true : false
+            getPdfButton.backgroundColor = info.pdf!.isEmpty ? .systemGray : .systemBlue
         }
         UIView.animate(withDuration: 0.3) {
             self.organizationName.isHidden = false
@@ -81,8 +81,6 @@ class InformationViewController: UIViewController {
     }
     
     @IBAction func getPdf(_ sender: Any) {
-        // сначала получаем токен для получения pdf, потом получаем pdf
-        print("Downloading pdf")
         guard let url = URL(string: info.pdf!) else { return }
         guard let doc = try? Data.init(contentsOf: url) else { return }
         let shareController = UIActivityViewController(activityItems: [doc], applicationActivities: nil)
