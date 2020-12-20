@@ -47,9 +47,11 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="O5Y-HD-6ha" secondAttribute="trailing" constant="20" symbolic="YES" id="0Km-fH-Cgh"/>
                                                 <constraint firstItem="0s6-He-pB2" firstAttribute="leading" secondItem="2sZ-aw-IIY" secondAttribute="leading" constant="10" id="8lM-hB-EmM"/>
                                                 <constraint firstItem="O5Y-HD-6ha" firstAttribute="leading" secondItem="2sZ-aw-IIY" secondAttribute="leading" constant="10" id="J9n-Ca-GgO"/>
                                                 <constraint firstAttribute="bottom" secondItem="0s6-He-pB2" secondAttribute="bottom" constant="5" id="SRh-qx-mOE"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0s6-He-pB2" secondAttribute="trailing" constant="20" symbolic="YES" id="g5O-xV-jfo"/>
                                                 <constraint firstItem="O5Y-HD-6ha" firstAttribute="top" secondItem="2sZ-aw-IIY" secondAttribute="top" constant="5" id="iXf-lA-ztL"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -116,6 +118,8 @@
                                             <constraints>
                                                 <constraint firstItem="fof-z9-15d" firstAttribute="leading" secondItem="bEH-ri-IF7" secondAttribute="leading" constant="10" id="8Xc-Y6-8uZ"/>
                                                 <constraint firstItem="JAL-kO-SyX" firstAttribute="top" secondItem="bEH-ri-IF7" secondAttribute="top" constant="5" id="9cx-RB-Ubc"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fof-z9-15d" secondAttribute="trailing" constant="20" symbolic="YES" id="RkM-wf-eDM"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JAL-kO-SyX" secondAttribute="trailing" constant="20" symbolic="YES" id="VTd-3x-V61"/>
                                                 <constraint firstItem="JAL-kO-SyX" firstAttribute="leading" secondItem="bEH-ri-IF7" secondAttribute="leading" constant="10" id="Vvf-mH-Ihx"/>
                                                 <constraint firstAttribute="bottom" secondItem="fof-z9-15d" secondAttribute="bottom" constant="5" id="eVq-JC-C1A"/>
                                             </constraints>
@@ -177,10 +181,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7o9-Ac-SeW">
-                                <rect key="frame" x="94.5" y="782" width="225" height="30"/>
+                                <rect key="frame" x="102" y="782" width="210" height="30"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="FaJ-qh-qQ2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title=" Получить выписку из ЕГРЮЛ ">
+                                <state key="normal" title="Получить сведения РСМП">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -217,6 +224,7 @@
                     <navigationItem key="navigationItem" id="KWl-Vm-tfr"/>
                     <connections>
                         <outlet property="favButton" destination="cTW-ce-LbF" id="Q9v-ur-oap"/>
+                        <outlet property="getPdfButton" destination="7o9-Ac-SeW" id="C59-Vc-cNU"/>
                         <outlet property="organizationDescription" destination="1LB-17-eYa" id="Tjl-kI-P4U"/>
                         <outlet property="organizationId" destination="Kd3-yv-dTV" id="70g-rq-Gfx"/>
                         <outlet property="organizationName" destination="un1-i8-yxa" id="Ku2-yC-zR4"/>

@@ -30,10 +30,6 @@ class FavoriteViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
 }
 
@@ -56,7 +52,6 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         controller.modalPresentationStyle = .fullScreen
         controller.modalTransitionStyle = .coverVertical
         let organization = self.organizations[indexPath.row]
-        print("downloading info")
         // Оптимизировать передачу данных между контроллерами
         OrganizationNetworkService.getOrganizationInfo(for: OrganizationInfo(organization)) { (responce) in
             if responce.organization.name == "Произошла ошибка" {
@@ -70,5 +65,40 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         present(controller, animated: true)
     }
     
+    // Удаление из избранного по свайпу
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let remove = removeAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [remove])
+    }
+    
+    private func removeAction(at indexPath: IndexPath) -> UIContextualAction {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let organization = self.organizations[indexPath.row]
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+            let fetchRequest: NSFetchRequest<Organization> = Organization.fetchRequest()
+            
+            guard let inn = organization.inn else { return }
+            fetchRequest.predicate = NSPredicate(format: "inn == %@", inn)
+            
+            if let objects = try? context.fetch(fetchRequest) {
+                for object in objects {
+                    context.delete(object)
+                }
+            }
+            
+            do {
+                try context.save()
+                self.organizations.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            completion(true)
+        }
+        action.backgroundColor = .systemRed
+        action.image = UIImage(systemName: "delete.left")
+        return action
+    }
     
 }

@@ -14,6 +14,7 @@ class InformationViewController: UIViewController {
     @IBOutlet weak var organizationName: UILabel!
     @IBOutlet weak var organizationDescription: UITextView!
     @IBOutlet weak var favButton: UIBarButtonItem!
+    @IBOutlet weak var getPdfButton: UIButton!
     
     var organization: OrganizationInfo?
     var info = OrganizationFullInfo()
@@ -28,10 +29,14 @@ class InformationViewController: UIViewController {
         if info.name == "Произошла ошибка" {
             organizationDescription.text = ""
             favButton.isEnabled = false
+            getPdfButton.isEnabled = false
+            getPdfButton.backgroundColor = .systemGray
         } else {
             favButton.isEnabled = true
             checkInBase(organization: info)
             organizationDescription.text = info.isGood
+            getPdfButton.isEnabled = true
+            getPdfButton.backgroundColor = .systemBlue
         }
         UIView.animate(withDuration: 0.3) {
             self.organizationName.isHidden = false
@@ -78,6 +83,11 @@ class InformationViewController: UIViewController {
     @IBAction func getPdf(_ sender: Any) {
         // сначала получаем токен для получения pdf, потом получаем pdf
         print("Downloading pdf")
+        guard let url = URL(string: info.pdf!) else { return }
+        guard let doc = try? Data.init(contentsOf: url) else { return }
+        let shareController = UIActivityViewController(activityItems: [doc], applicationActivities: nil)
+
+        present(shareController, animated: true, completion: nil)
     }
     
     // Сохранение в оффлайн базу
@@ -118,6 +128,7 @@ class InformationViewController: UIViewController {
                 context.delete(object)
             }
         }
+
         do {
             try context.save()
         } catch let error as NSError {

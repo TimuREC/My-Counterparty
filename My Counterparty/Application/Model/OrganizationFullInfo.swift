@@ -16,6 +16,7 @@ struct OrganizationFullInfo {
     var owner: String?
     var debt: String?
     var token: String?
+    var pdf: String?
     var isGood: String {
         var result = ""
         if self.status != nil ||
@@ -45,7 +46,7 @@ struct OrganizationFullInfo {
         return result
     }
     
-    init?(dict: [String: Any], token: String) {
+    init?(dict: [String: Any], token: String, pdf: String) {
         
         guard let name = dict["НаимЮЛСокр"] as? String,
               let inn = dict["ИНН"] as? String
@@ -54,8 +55,8 @@ struct OrganizationFullInfo {
         self.name = name
         self.inn = inn
         self.token = token
+        self.pdf = pdf
         
-        // добавить долги, численность, директора
         if let status = dict["НаимСтатусЮЛСокр"] as? String {
             self.status = status
         }
@@ -93,6 +94,7 @@ struct OrganizationFullInfo {
         self.owner = organization.owner!
         self.debt = organization.debt!
         self.token = organization.token!
+        self.pdf = organization.pdf!
     }
     
     init() {
