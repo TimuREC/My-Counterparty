@@ -33,8 +33,13 @@ class InformationViewController: UIViewController {
             favButton.isEnabled = true
             checkInBase(organization: info)
             organizationDescription.text = info.isGood
-            getPdfButton.isEnabled = info.pdf!.isEmpty ? false : true
-            getPdfButton.backgroundColor = info.pdf!.isEmpty ? .systemGray : .systemBlue
+            if let pdf = info.pdf {
+                getPdfButton.isEnabled = pdf.isEmpty ? false : true
+                getPdfButton.backgroundColor = pdf.isEmpty ? .systemGray : .systemBlue
+            } else {
+                getPdfButton.isEnabled = false
+                getPdfButton.backgroundColor = .systemGray
+            }
             organizationDescription.isHidden = false
         }
         

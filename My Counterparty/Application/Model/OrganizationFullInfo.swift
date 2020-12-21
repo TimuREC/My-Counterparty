@@ -88,11 +88,11 @@ struct OrganizationFullInfo {
     init(_ organization: Organization) {
         self.name = organization.name!
         self.inn = organization.inn!
-        self.status = organization.status!
-        self.address = organization.address!
-        self.director = organization.director!
-        self.owner = organization.owner!
-        self.debt = organization.debt!
+        self.status = organization.status
+        self.address = organization.address
+        self.director = organization.director
+        self.owner = organization.owner
+        self.debt = organization.debt
         self.token = organization.token!
         self.pdf = organization.pdf
     }
