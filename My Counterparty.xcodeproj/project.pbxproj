@@ -22,7 +22,6 @@
 		FE55D1D7257FF2700081AD46 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE55D1D6257FF2700081AD46 /* InformationViewController.swift */; };
 		FEAF05FE25800AF4002E8225 /* SearchNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAF05FD25800AF4002E8225 /* SearchNetworkService.swift */; };
 		FEAF060125800C60002E8225 /* GetSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAF060025800C60002E8225 /* GetSearchResults.swift */; };
-		FEAF060425800D5A002E8225 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAF060325800D5A002E8225 /* NetworkError.swift */; };
 		FEBE026F258408C900236CF6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBE026E258408C900236CF6 /* TabBarController.swift */; };
 		FEE9D3F12582885F005E095A /* OrganizationFullInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9D3F02582885F005E095A /* OrganizationFullInfo.swift */; };
 		FEE9D3F4258288CC005E095A /* OrganizationNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9D3F3258288CC005E095A /* OrganizationNetworkService.swift */; };
@@ -47,7 +46,6 @@
 		FE55D1D6257FF2700081AD46 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		FEAF05FD25800AF4002E8225 /* SearchNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkService.swift; sourceTree = "<group>"; };
 		FEAF060025800C60002E8225 /* GetSearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchResults.swift; sourceTree = "<group>"; };
-		FEAF060325800D5A002E8225 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FEBE026E258408C900236CF6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FEE9D3F02582885F005E095A /* OrganizationFullInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationFullInfo.swift; sourceTree = "<group>"; };
 		FEE9D3F3258288CC005E095A /* OrganizationNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNetworkService.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 				FEE9D3F6258288F1005E095A /* GetOrganizationInfo.swift */,
 				FE41D82C257FFDE10000C952 /* OrganizationInfo.swift */,
 				FEE9D3F02582885F005E095A /* OrganizationFullInfo.swift */,
-				FEAF060325800D5A002E8225 /* NetworkError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,7 +230,6 @@
 				FE55D1D4257FF2590081AD46 /* FavoriteViewController.swift in Sources */,
 				FEAF060125800C60002E8225 /* GetSearchResults.swift in Sources */,
 				FEE9D3F12582885F005E095A /* OrganizationFullInfo.swift in Sources */,
-				FEAF060425800D5A002E8225 /* NetworkError.swift in Sources */,
 				FE55D1B7257FECBA0081AD46 /* SceneDelegate.swift in Sources */,
 				FEAF05FE25800AF4002E8225 /* SearchNetworkService.swift in Sources */,
 			);

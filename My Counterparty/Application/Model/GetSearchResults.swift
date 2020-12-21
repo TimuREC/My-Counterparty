@@ -14,8 +14,8 @@ struct GetSearchResults {
         var organizations = [OrganizationInfo]()
         
         if let full = json as? [String: Any] {
-            if let ul = full["ul"] as? [String: Any] {
-                if let data = ul["data"] as? [[String: Any]] {
+            if let infoDict = full["ul"] as? [String: Any] {
+                if let data = infoDict["data"] as? [[String: Any]] {
                     for dictionary in data {
                         guard let organization = OrganizationInfo(dict: dictionary) else { continue }
                         organizations.append(organization)

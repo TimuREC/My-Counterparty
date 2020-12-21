@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class FavoriteViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var organizations: [Organization] = []
@@ -30,7 +30,7 @@ class FavoriteViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-
+    
 }
 
 extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
@@ -52,17 +52,16 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         controller.modalPresentationStyle = .fullScreen
         controller.modalTransitionStyle = .coverVertical
         let organization = self.organizations[indexPath.row]
-        // Оптимизировать передачу данных между контроллерами
+        
         OrganizationNetworkService.getOrganizationInfo(for: OrganizationInfo(organization)) { (responce) in
             if responce.organization.name == "Произошла ошибка" {
                 controller.info = OrganizationFullInfo(organization)
             } else {
                 controller.info = responce.organization
             }
-            controller.viewDidLoad()
+            self.present(controller, animated: true)
         }
         
-        present(controller, animated: true)
     }
     
     // Удаление из избранного по свайпу

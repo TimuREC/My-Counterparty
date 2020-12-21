@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         searchBar.delegate = self
     }
-
+    
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
@@ -45,9 +45,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         OrganizationNetworkService.getOrganizationInfo(for: organization) { (responce) in
             controller.info = responce.organization
-            controller.viewDidLoad()
+            self.present(controller, animated: true)
         }
-        present(controller, animated: true)
     }
 }
 
@@ -70,5 +69,5 @@ extension SearchViewController: UISearchBarDelegate {
             }
         }
     }
-
+    
 }

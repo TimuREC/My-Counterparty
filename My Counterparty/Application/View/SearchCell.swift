@@ -14,7 +14,7 @@ class SearchCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
     }
     
     func configure(with info: OrganizationInfo) {
