@@ -23,6 +23,8 @@
 		FEAF05FE25800AF4002E8225 /* SearchNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAF05FD25800AF4002E8225 /* SearchNetworkService.swift */; };
 		FEAF060125800C60002E8225 /* GetSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAF060025800C60002E8225 /* GetSearchResults.swift */; };
 		FEBE026F258408C900236CF6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBE026E258408C900236CF6 /* TabBarController.swift */; };
+		FECF480C25926FBC0084567B /* ErrorsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF480B25926FBC0084567B /* ErrorsEnum.swift */; };
+		FECF480F259271370084567B /* InfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF480E259271370084567B /* InfoEnum.swift */; };
 		FEE9D3F12582885F005E095A /* OrganizationFullInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9D3F02582885F005E095A /* OrganizationFullInfo.swift */; };
 		FEE9D3F4258288CC005E095A /* OrganizationNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9D3F3258288CC005E095A /* OrganizationNetworkService.swift */; };
 		FEE9D3F7258288F1005E095A /* GetOrganizationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9D3F6258288F1005E095A /* GetOrganizationInfo.swift */; };
@@ -47,6 +49,8 @@
 		FEAF05FD25800AF4002E8225 /* SearchNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkService.swift; sourceTree = "<group>"; };
 		FEAF060025800C60002E8225 /* GetSearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchResults.swift; sourceTree = "<group>"; };
 		FEBE026E258408C900236CF6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FECF480B25926FBC0084567B /* ErrorsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsEnum.swift; sourceTree = "<group>"; };
+		FECF480E259271370084567B /* InfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoEnum.swift; sourceTree = "<group>"; };
 		FEE9D3F02582885F005E095A /* OrganizationFullInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationFullInfo.swift; sourceTree = "<group>"; };
 		FEE9D3F3258288CC005E095A /* OrganizationNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNetworkService.swift; sourceTree = "<group>"; };
 		FEE9D3F6258288F1005E095A /* GetOrganizationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrganizationInfo.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				FEE9D3F6258288F1005E095A /* GetOrganizationInfo.swift */,
 				FE41D82C257FFDE10000C952 /* OrganizationInfo.swift */,
 				FEE9D3F02582885F005E095A /* OrganizationFullInfo.swift */,
+				FECF480B25926FBC0084567B /* ErrorsEnum.swift */,
+				FECF480E259271370084567B /* InfoEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,7 +234,9 @@
 				FE55D1BF257FECBA0081AD46 /* My_Counterparty.xcdatamodeld in Sources */,
 				FE55D1B5257FECBA0081AD46 /* AppDelegate.swift in Sources */,
 				FE55D1D4257FF2590081AD46 /* FavoriteViewController.swift in Sources */,
+				FECF480C25926FBC0084567B /* ErrorsEnum.swift in Sources */,
 				FEAF060125800C60002E8225 /* GetSearchResults.swift in Sources */,
+				FECF480F259271370084567B /* InfoEnum.swift in Sources */,
 				FEE9D3F12582885F005E095A /* OrganizationFullInfo.swift in Sources */,
 				FE55D1B7257FECBA0081AD46 /* SceneDelegate.swift in Sources */,
 				FEAF05FE25800AF4002E8225 /* SearchNetworkService.swift in Sources */,

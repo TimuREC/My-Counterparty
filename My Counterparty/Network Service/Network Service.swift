@@ -14,7 +14,7 @@ class NetworkService {
     
     public func getData(url: URL, completion: @escaping (Any) -> Void) {
         let session = URLSession.shared
-        // следующая строка вызывает ошибку, не влияющую на работу приложения
+
         session.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
             

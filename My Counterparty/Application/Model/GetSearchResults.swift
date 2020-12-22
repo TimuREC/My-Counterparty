@@ -22,7 +22,7 @@ struct GetSearchResults {
                     }
                 }
             } else if let _ = full["ERROR"] {
-                print("Error: Query limit exceed")
+                print("Error: \(Errors.queryLimit.rawValue)")
             }
         }
 

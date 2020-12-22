@@ -18,6 +18,7 @@ class FavoriteViewController: UIViewController {
         super.viewWillAppear(animated)
         tableView.delegate = self
         tableView.dataSource = self
+
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -49,12 +50,12 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: "InformationView") as! InformationViewController
-        controller.modalPresentationStyle = .fullScreen
+        controller.modalPresentationStyle = .automatic
         controller.modalTransitionStyle = .coverVertical
         let organization = self.organizations[indexPath.row]
         
         OrganizationNetworkService.getOrganizationInfo(for: OrganizationInfo(organization)) { (responce) in
-            if responce.organization.name == "Произошла ошибка" {
+            if responce.organization.name == Errors.invalidData.rawValue {
                 controller.info = OrganizationFullInfo(organization)
             } else {
                 controller.info = responce.organization
@@ -64,7 +65,7 @@ extension FavoriteViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    // Удаление из избранного по свайпу
+    // MARK: - Removing from favorite by swipe action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let remove = removeAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [remove])

@@ -25,8 +25,19 @@ struct OrganizationInfo {
     }
     
     init(_ organization: Organization) {
-        self.name = organization.name!
-        self.inn = organization.inn!
-        self.token = organization.token!
+        self.init()
+        if let name = organization.name,
+           let inn = organization.inn,
+           let token = organization.token {
+            self.name = name
+            self.inn = inn
+            self.token = token
+        }
+    }
+    
+    init() {
+        name = Errors.invalidData.rawValue
+        inn = ""
+        token = ""
     }
 }

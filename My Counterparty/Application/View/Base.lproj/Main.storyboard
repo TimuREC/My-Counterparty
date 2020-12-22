@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hbm-Rc-fwf">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="dwM-uY-Ccr">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -26,7 +26,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="eFB-UO-fS0" customClass="SearchCell" customModule="My_Counterparty" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="eFB-UO-fS0" customClass="SearchCell" customModule="My_Counterparty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eFB-UO-fS0" id="2sZ-aw-IIY">
@@ -62,18 +62,36 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7XM-4a-CvP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Поиск" id="udJ-5H-TXG"/>
+                                </items>
+                            </navigationBar>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ничего не найдено" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nm5-jb-XWN">
+                                <rect key="frame" x="76.5" y="168" width="261" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hbm-Rc-fwf" secondAttribute="trailing" id="3yT-hJ-Iuf"/>
+                            <constraint firstItem="hbm-Rc-fwf" firstAttribute="top" secondItem="7XM-4a-CvP" secondAttribute="bottom" id="5fx-D1-eZn"/>
+                            <constraint firstItem="7XM-4a-CvP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8ih-NX-JGe"/>
                             <constraint firstItem="hbm-Rc-fwf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MHj-kZ-wkE"/>
-                            <constraint firstItem="hbm-Rc-fwf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="P2K-cC-IQe"/>
+                            <constraint firstItem="Nm5-jb-XWN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VXf-dl-pjd"/>
+                            <constraint firstItem="7XM-4a-CvP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZiQ-1g-QHJ"/>
+                            <constraint firstItem="7XM-4a-CvP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="inM-qN-ZdO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hbm-Rc-fwf" secondAttribute="bottom" id="oAw-18-jqn"/>
+                            <constraint firstItem="Nm5-jb-XWN" firstAttribute="top" secondItem="7XM-4a-CvP" secondAttribute="bottom" constant="80" id="uCc-IR-4Lc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Поиск" image="magnifyingglass" catalog="system" id="pON-IN-BuO"/>
                     <connections>
+                        <outlet property="noResultsLabel" destination="Nm5-jb-XWN" id="vRc-Vt-oOw"/>
                         <outlet property="searchBar" destination="dwM-uY-Ccr" id="Tf7-w3-Q0s"/>
                         <outlet property="tableView" destination="hbm-Rc-fwf" id="fVm-vJ-Jbp"/>
                     </connections>
@@ -90,12 +108,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-uC-FDC">
-                                <rect key="frame" x="0.0" y="63" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-uC-FDC">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="R53-Da-ird" customClass="SearchCell" customModule="My_Counterparty" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="R53-Da-ird" customClass="SearchCell" customModule="My_Counterparty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R53-Da-ird" id="bEH-ri-IF7">
@@ -131,9 +148,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIs-Kq-iVH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Избранное" id="1PD-mV-m1g"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FzA-wA-hhi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KIs-Kq-iVH" firstAttribute="top" secondItem="FzA-wA-hhi" secondAttribute="top" id="6m2-hw-SkS"/>
+                            <constraint firstItem="WmR-uC-FDC" firstAttribute="leading" secondItem="FzA-wA-hhi" secondAttribute="leading" id="Enq-EL-319"/>
+                            <constraint firstItem="KIs-Kq-iVH" firstAttribute="trailing" secondItem="FzA-wA-hhi" secondAttribute="trailing" id="LXN-Kb-IMd"/>
+                            <constraint firstItem="WmR-uC-FDC" firstAttribute="trailing" secondItem="FzA-wA-hhi" secondAttribute="trailing" id="P3H-e4-gra"/>
+                            <constraint firstItem="FzA-wA-hhi" firstAttribute="bottom" secondItem="WmR-uC-FDC" secondAttribute="bottom" id="UkM-sa-bcm"/>
+                            <constraint firstItem="WmR-uC-FDC" firstAttribute="top" secondItem="KIs-Kq-iVH" secondAttribute="bottom" id="Y9M-UV-SqU"/>
+                            <constraint firstItem="KIs-Kq-iVH" firstAttribute="leading" secondItem="FzA-wA-hhi" secondAttribute="leading" id="dvK-xH-QCM"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Избранное" image="star.fill" catalog="system" id="PBQ-7S-hPu"/>
                     <connections>

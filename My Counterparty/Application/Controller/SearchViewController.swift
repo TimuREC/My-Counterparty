@@ -11,6 +11,7 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var noResultsLabel: UILabel!
     
     var organizations = [OrganizationInfo]()
     
@@ -19,6 +20,25 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        let info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset: UIEdgeInsets = self.tableView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        self.tableView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInset = UIEdgeInsets.zero
+        self.tableView.contentInset = contentInset
     }
     
 }
@@ -37,9 +57,10 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.resignFirstResponder()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: "InformationView") as! InformationViewController
-        controller.modalPresentationStyle = .fullScreen
+        controller.modalPresentationStyle = .automatic
         controller.modalTransitionStyle = .coverVertical
         let organization = self.organizations[indexPath.row]
         
@@ -54,6 +75,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true
+        self.noResultsLabel.isHidden = true
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -62,11 +84,16 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let query = searchBar.text {
-            SearchNetworkService.getSearchResults(query: query) { (response) in
+        guard let query = searchBar.text else { return }
+        self.noResultsLabel.isHidden = true
+        SearchNetworkService.getSearchResults(query: query) { (response) in
+            if response.organizations.isEmpty {
+                self.organizations = []
+                self.noResultsLabel.isHidden.toggle()
+            } else {
                 self.organizations = response.organizations
-                self.tableView.reloadData()
             }
+            self.tableView.reloadData()
         }
     }
     

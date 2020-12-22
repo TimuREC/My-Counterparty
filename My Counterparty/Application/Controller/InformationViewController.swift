@@ -24,7 +24,7 @@ class InformationViewController: UIViewController {
         organizationId.title = info.inn
         organizationName.text = info.name
         
-        if info.name == "Произошла ошибка" {
+        if info.name == Errors.invalidData.rawValue {
             organizationDescription.text = ""
             favButton.isEnabled = false
             getPdfButton.isEnabled = false
@@ -43,7 +43,7 @@ class InformationViewController: UIViewController {
             organizationDescription.isHidden = false
         }
         
-        if info.isGood.contains("Организация вызывает подозрение:") {
+        if info.isGood != OrgInfo.goodOrg.rawValue {
             organizationDescription.textColor = .red
         }
         
@@ -76,13 +76,11 @@ class InformationViewController: UIViewController {
     
     @IBAction func favoriteButton(_ sender: Any) {
         if favButton.image == UIImage(systemName: "star") {
-            // Сохранение в оффлайн базу
             save(an: info)
             UIView.animate(withDuration: 0.3) { [weak self] in
                 self!.favButton.image = UIImage(systemName: "star.fill")
             }
         } else {
-            // Удаление из базы
             remove(an: info)
             UIView.animate(withDuration: 0.3) {
                 self.favButton.image = UIImage(systemName: "star")
@@ -99,9 +97,9 @@ class InformationViewController: UIViewController {
         present(shareController, animated: true, completion: nil)
     }
     
-    // Сохранение в оффлайн базу
+    // MARK: - Save to offline base (Core Data)
     private func save(an organization: OrganizationFullInfo) {
-        guard organization.name != "Произошла ошибка" else { return }
+        guard organization.name != Errors.invalidData.rawValue else { return }
         let context = getContext()
         
         guard let entity = NSEntityDescription.entity(forEntityName: "Organization", in: context)
@@ -127,7 +125,7 @@ class InformationViewController: UIViewController {
         }
     }
     
-    // Удаление из базы
+    // MARK: - Remove from offline base (Core Data)
     private func remove(an organization: OrganizationFullInfo) {
         let context = getContext()
         
